@@ -1,12 +1,17 @@
 <template>
   <div class="weather">
-    <v-progress-circular v-if="isLoaderCurrentWeather" model-value="20"></v-progress-circular>
-    <CurrentWeather v-else/>
+    <AppWeather
+        v-for="weather in weatherList.list"
+        :name="weatherList.city.name"
+        :temp="weather.main.temp"
+        :speed="weather.wind.speed"
+        :humidity="weather.main.humidity"
+        :weather="weather.weather[0].main"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import CurrentWeather from "~/components/CurrentWeather.vue";
 import {storeToRefs} from "pinia";
 import {userStore} from "~/store/userStore";
 import {onMounted} from "@vue/runtime-core";
@@ -15,12 +20,12 @@ export default {
   name: "weather",
   setup() {
     const store = userStore();
-    const {requestCurrentWeather} = store;
-    const {isLoaderCurrentWeather} = storeToRefs(store);
+    const {requestWeather} = store;
+    const {weatherList, city} = storeToRefs(store);
 
-    onMounted(async () => await requestCurrentWeather());
+    onMounted(() => {if (city.value) requestWeather()});
 
-    return {isLoaderCurrentWeather}
+    return {weatherList}
   }
 }
 </script>
