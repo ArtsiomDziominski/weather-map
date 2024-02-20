@@ -1,14 +1,15 @@
 <template>
   <NuxtLayout>
+    <AppBar/>
     <main class="pages">
       <section>
+        <TextFieldCity></TextFieldCity>
         <NuxtPage></NuxtPage>
       </section>
     </main>
   </NuxtLayout>
 </template>
 <script lang="ts">
-
 </script>
 
 <style lang="scss">
@@ -19,9 +20,10 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  padding: 20px;
 
   a {
-    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+    text-decoration: none;
   }
 }
 
