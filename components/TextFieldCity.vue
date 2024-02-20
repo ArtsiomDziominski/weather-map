@@ -5,6 +5,7 @@
   >
     <v-text-field
         v-model.trim="city"
+        class="pa-10"
         prepend-icon="mdi-map-marker"
         :append-icon="'mdi-send'"
         label="City"
