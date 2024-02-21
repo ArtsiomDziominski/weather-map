@@ -39,6 +39,7 @@ export default {
 
   @media screen and (max-width: 860px) {
     flex-direction: column;
+    gap: 20px;
   }
 }
 </style>
