@@ -30,10 +30,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .weather {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+
+  @media screen and (max-width: 860px) {
+    flex-direction: column;
+  }
 }
 </style>
